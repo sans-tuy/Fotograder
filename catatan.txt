@@ -1,0 +1,1 @@
+ link unruk view pager : 'https://aboutreact.com/react-native-view-pager/' 
