@@ -78,7 +78,7 @@ export default function SignInPembeli() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-    marginHorizontal: 20,
+    paddingHorizontal: 20,
   },
   labelForm: {
     color: '#114393',

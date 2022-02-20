@@ -8,14 +8,7 @@ import SignUpFotografer from './src/pages/SignUpFotografer';
 import SignUpPembeli from './src/pages/SignUpPembeli';
 
 export default function App() {
-  return (
-    <View style={{color: '#ffff', flex: 1}}>
-      {/* <Intro /> */}
-      <View>
-        <SignUpFotografer />
-      </View>
-    </View>
-  );
+  return <Home />;
 }
 
 const styles = StyleSheet.create({});
