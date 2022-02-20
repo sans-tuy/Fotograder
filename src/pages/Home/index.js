@@ -5,14 +5,17 @@ import {
   Text,
   TextInput,
   View,
+  Alert,
+  Modal,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import Navigation from '../../component/Navigation';
 import SearchBar from '../../component/SearchBar';
 import Jumbotron from '../../component/Jumbotron';
 import Card from '../../component/card';
 
-export default function Home() {
+export default function Home({onProfile, onDetails, onHome}) {
   const data = {
     card: [
       {
@@ -42,10 +45,14 @@ export default function Home() {
     ],
   };
   const [items, setitems] = useState(data);
+  const [modalVisible, setmodalVisible] = useState(false);
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <SearchBar />
+        <SearchBar
+          onModal={() => setmodalVisible(!modalVisible)}
+          modalVisible={modalVisible}
+        />
         <ScrollView>
           <Jumbotron />
           <View style={styles.card}>
@@ -61,8 +68,20 @@ export default function Home() {
             ))}
           </View>
         </ScrollView>
+        {/* <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+            this.setModalVisible(!modalVisible);
+          }}>
+          <View>
+            <Text>ini modal</Text>
+          </View>
+        </Modal> */}
       </View>
-      <Navigation />
+      <Navigation onProfile={onProfile} onHome={onHome} />
     </View>
   );
 }

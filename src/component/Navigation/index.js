@@ -1,19 +1,23 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import SvgHome from '../../assets/icon/Home.svg';
 import SvgProfile from '../../assets/icon/Profile.svg';
 
-export default function Navigation() {
+export default function Navigation({onProfile, onHome}) {
   return (
     <View style={styles.navigator}>
-      <View style={{alignItems: 'center', justifyContent: 'center'}}>
+      <TouchableOpacity
+        style={{alignItems: 'center', justifyContent: 'center'}}
+        onPress={onHome}>
         <SvgHome />
         <Text style={styles.navigatorTitle}>Home</Text>
-      </View>
-      <View style={{alignItems: 'center', justifyContent: 'center'}}>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{alignItems: 'center', justifyContent: 'center'}}
+        onPress={onProfile}>
         <SvgProfile />
         <Text style={styles.navigatorTitle2}>Profil</Text>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -24,7 +28,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
     justifyContent: 'space-around',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
   navigatorTitle: {
     color: '#114393',

@@ -1,20 +1,32 @@
-import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import SvgSearch from '../../assets/icon/Search.svg';
 import SvgFilter from '../../assets/icon/Filter.svg';
+import FilterModal from '../FilterModal';
 
-export default function SearchBar() {
+export default function SearchBar({onModal, modalVisible}) {
   return (
-    <View style={styles.searchBar}>
-      <View style={styles.searchInput}>
-        <TextInput style={styles.inputSearch} placeholder="Wedding" />
-        <View style={styles.iconWrapper}>
-          <SvgSearch width={17} height={17} style={styles.iconSearch} />
+    <View>
+      <View style={styles.searchBar}>
+        <View style={styles.searchInput}>
+          <TextInput style={styles.inputSearch} placeholder="Wedding" />
+          <View style={styles.iconWrapper}>
+            <SvgSearch width={17} height={17} style={styles.iconSearch} />
+          </View>
         </View>
+        <Pressable onPress={onModal} style={styles.iconWrapper2}>
+          <SvgFilter style={styles.iconSearch} />
+        </Pressable>
       </View>
-      <View style={styles.iconWrapper2}>
-        <SvgFilter style={styles.iconSearch} />
-      </View>
+      <FilterModal modalVisible={modalVisible} onModal={onModal} />
     </View>
   );
 }
