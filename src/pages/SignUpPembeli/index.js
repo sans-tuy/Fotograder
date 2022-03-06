@@ -13,7 +13,7 @@ import {
 import React from 'react';
 import {useState} from 'react/cjs/react.development';
 
-export default function SignUpPembeli() {
+export default function SignUpPembeli({onHome}) {
   const [name, setname] = useState('');
   const [telepon, settelepon] = useState('');
   const [email, setemail] = useState('');
@@ -113,7 +113,7 @@ export default function SignUpPembeli() {
         </View>
         <View style={styles.buttonWrapper}>
           <View>
-            <Pressable style={styles.button2}>
+            <Pressable style={styles.button2} onPress={onHome}>
               <Text style={styles.buttonText}>SIGN UP</Text>
             </Pressable>
           </View>
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20,
     backgroundColor: '#A5A5A5',
-    width: 320,
+    width: '100%',
     height: 40,
     borderRadius: 10,
     alignItems: 'center',
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   button2: {
     marginTop: 20,
     backgroundColor: '#2A3D5B',
-    width: 320,
+    width: '100%',
     height: 40,
     borderRadius: 10,
     alignItems: 'center',
@@ -178,6 +178,9 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     marginTop: 20,
+    width: '98%',
+    alignSelf: 'center',
+    marginBottom: 20,
   },
   view: {
     width: 25,

@@ -12,7 +12,7 @@ import {
 import React from 'react';
 import {useState} from 'react/cjs/react.development';
 
-export default function SignInFotografer() {
+export default function SignInFotografer({onHome, onSignUpFotografer}) {
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
   const [view, setview] = useState(true);
@@ -63,10 +63,10 @@ export default function SignInFotografer() {
       </View>
       <View style={styles.buttonWrapper}>
         <View>
-          <Pressable style={styles.button}>
+          <Pressable style={styles.button} onPress={onSignUpFotografer}>
             <Text style={styles.buttonText}>SIGN UP</Text>
           </Pressable>
-          <Pressable style={styles.button2}>
+          <Pressable style={styles.button2} onPress={onHome}>
             <Text style={styles.buttonText}>SIGN IN</Text>
           </Pressable>
         </View>
@@ -78,7 +78,7 @@ export default function SignInFotografer() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 20,
+    flex: 1,
   },
   labelForm: {
     color: '#114393',
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 20,
     backgroundColor: '#A5A5A5',
-    width: 320,
+    width: '100%',
     height: 40,
     borderRadius: 10,
     alignItems: 'center',
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   button2: {
     marginTop: 20,
     backgroundColor: '#2A3D5B',
-    width: 320,
+    width: '100%',
     height: 40,
     borderRadius: 10,
     alignItems: 'center',
@@ -129,7 +129,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   buttonWrapper: {
-    marginTop: 60,
+    marginTop: 10,
+    width: '90%',
+    alignSelf: 'center',
   },
   view: {
     width: 25,

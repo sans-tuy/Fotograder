@@ -5,7 +5,7 @@ import SvgJumbotron from '../../assets/images/Jumbotron.svg';
 export default function Jumbotron() {
   return (
     <View style={{alignItems: 'center'}}>
-      <SvgJumbotron style={styles.jumbotron} />
+      <SvgJumbotron width={'100%'} style={styles.jumbotron} />
     </View>
   );
 }

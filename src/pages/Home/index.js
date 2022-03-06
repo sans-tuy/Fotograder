@@ -8,7 +8,6 @@ import {
   Alert,
   Modal,
 } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import Navigation from '../../component/Navigation';
 import SearchBar from '../../component/SearchBar';
@@ -54,7 +53,9 @@ export default function Home({onProfile, onDetails, onHome}) {
           modalVisible={modalVisible}
         />
         <ScrollView>
-          <Jumbotron />
+          <View style={styles.jumbotron}>
+            <Jumbotron />
+          </View>
           <View style={styles.card}>
             {data.card.map(item => (
               <View style={{width: '50%'}}>
@@ -68,18 +69,6 @@ export default function Home({onProfile, onDetails, onHome}) {
             ))}
           </View>
         </ScrollView>
-        {/* <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-            this.setModalVisible(!modalVisible);
-          }}>
-          <View>
-            <Text>ini modal</Text>
-          </View>
-        </Modal> */}
       </View>
       <Navigation onProfile={onProfile} onHome={onHome} />
     </View>
@@ -94,10 +83,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   card: {
-    paddingHorizontal: 20,
     flexDirection: 'row',
     flexWrap: 'wrap',
     flex: 1,
     alignItems: 'flex-start',
+    width: '90%',
+    alignSelf: 'center',
+  },
+  jumbotron: {
+    width: '90%',
+    alignSelf: 'center',
   },
 });

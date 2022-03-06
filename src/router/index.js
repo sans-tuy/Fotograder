@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Text, Button, View} from 'react-native';
 import Home from '../pages/Home';
 import Intro from '../pages/Intro';
 import SignInFotografer from '../pages/SignInFotografer';
@@ -22,34 +21,74 @@ function HomeScreen({navigation}) {
   );
 }
 
-function OnBoarding({navigation}) {
-  return <Intro onPress={() => navigation.navigate('HomeScreen')} />;
+function OnBoardingScreen({navigation}) {
+  return (
+    <Intro
+      onSignInPembeli={() => navigation.navigate('SignInPembeli')}
+      onSignInFotografer={() => navigation.navigate('SignInFotografer')}
+    />
+  );
 }
 
-function SignInBeli({navigation}) {
-  return <SignInPembeli onPress={() => navigation.navigate('HomeScreen')} />;
+function SignInBeliScreen({navigation}) {
+  return (
+    <SignInPembeli
+      onHome={() => navigation.navigate('Home')}
+      onSignUpPembeli={() => navigation.navigate('SignUpPembeli')}
+    />
+  );
 }
 
-function SignInFoto({navigation}) {
-  return <SignInFotografer onPress={() => navigation.navigate('HomeScreen')} />;
+function SignInFotoScreen({navigation}) {
+  return (
+    <SignInFotografer
+      onHome={() => navigation.navigate('Home')}
+      onSignUpFotografer={() => navigation.navigate('SignUpFotografer')}
+    />
+  );
 }
 
-function SignUpBeli({navigation}) {
-  return <SignUpPembeli onPress={() => navigation.navigate('HomeScreen')} />;
+function SignUpBeliScreen({navigation}) {
+  return <SignUpPembeli onHome={() => navigation.navigate('Home')} />;
 }
 
-function SignUpFoto({navigation}) {
-  return <SignUpFotografer onPress={() => navigation.navigate('HomeScreen')} />;
+function SignUpFotoScreen({navigation}) {
+  return <SignUpFotografer onHome={() => navigation.navigate('Home')} />;
 }
 
-function Profil({navigation}) {
-  return <Profile onPress={() => navigation.navigate('HomeScreen')} />;
+function ProfilScreen({navigation}) {
+  return <Profile onBoarding={() => navigation.navigate('OnBoarding')} />;
 }
 
-function Router(props) {
+function Router() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="onBoarding">
+        <Stack.Screen
+          name="OnBoarding"
+          component={OnBoardingScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SignInPembeli"
+          component={SignInBeliScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SignUpPembeli"
+          component={SignUpBeliScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SignInFotografer"
+          component={SignInFotoScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SignUpFotografer"
+          component={SignUpFotoScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Home"
           component={HomeScreen}
@@ -57,8 +96,18 @@ function Router(props) {
         />
         <Stack.Screen
           name="Profile"
-          component={Profil}
-          options={{headerShown: false}}
+          component={ProfilScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: 'white',
+              elevation: 0,
+              shadowOpacity: 0, // remove shadow on iOS
+              borderBottomWidth: 0,
+            },
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

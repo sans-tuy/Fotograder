@@ -29,7 +29,7 @@ import {
   PagerDotIndicator,
 } from '@shankarmorwal/rn-viewpager';
 
-const Intro = () => {
+const Intro = ({onSignInPembeli, onSignInFotografer}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
@@ -81,10 +81,12 @@ const Intro = () => {
             <View style={styles.imagePager}>
               <Image source={require('../../assets/images/4.png')} />
             </View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={onSignInPembeli}>
               <Text style={styles.textButton}>Sebagai Pembeli</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button2}>
+            <TouchableOpacity
+              style={styles.button2}
+              onPress={onSignInFotografer}>
               <Text style={styles.textButton2}>Sebagai Fotografer</Text>
             </TouchableOpacity>
           </View>

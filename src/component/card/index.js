@@ -8,10 +8,11 @@ export default function Card(props) {
     <View style={styles.card}>
       <View>
         <Image
+          style={{width: '100%'}}
           source={require('../../assets/images/unsplash_8CqDvPuo_kI.png')}
         />
       </View>
-      <View style={{paddingHorizontal: 6, marginTop: 17}}>
+      <View style={{paddingHorizontal: 6, marginTop: 5}}>
         <Text>{props.title}</Text>
         <Text style={styles.price}>RP {props.price},00</Text>
         <View style={styles.reaction}>
@@ -49,16 +50,15 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: 'white',
-    width: 152,
+    width: '90%',
     borderRadius: 10,
-    marginRight: 20,
     marginBottom: 15,
   },
   price: {
     color: '#114393',
     fontWeight: 'bold',
     fontSize: 14,
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 5,
   },
 });

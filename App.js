@@ -11,7 +11,7 @@ import FilterModal from './src/component/FilterModal';
 import Profile from './src/pages/Profile';
 
 export default function App() {
-  return <Profile />;
+  return <Router />;
 }
 
 const styles = StyleSheet.create({});
