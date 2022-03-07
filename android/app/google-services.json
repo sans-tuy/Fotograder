@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "872471033905",
+    "project_id": "notif-photograder",
+    "storage_bucket": "notif-photograder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872471033905:android:7b14798347ee8b9c74fd10",
+        "android_client_info": {
+          "package_name": "com.photographer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872471033905-p2lj5iane337ov9saiimm5gb297tgite.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnIu4Lm___sLWW32zxOGbH16SZ8YapbBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872471033905-p2lj5iane337ov9saiimm5gb297tgite.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

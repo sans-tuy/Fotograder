@@ -13,14 +13,8 @@ import {
   Image,
   Button,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
-
-// import {
-//   PagerTabIndicator,
-//   IndicatorViewPager,
-//   PagerTitleIndicator,
-//   PagerDotIndicator,
-// } from 'rn-viewpager';
 
 import {
   PagerTabIndicator,
@@ -81,14 +75,12 @@ const Intro = ({onSignInPembeli, onSignInFotografer}) => {
             <View style={styles.imagePager}>
               <Image source={require('../../assets/images/4.png')} />
             </View>
-            <TouchableOpacity style={styles.button} onPress={onSignInPembeli}>
+            <Pressable style={styles.button} onPress={onSignInPembeli}>
               <Text style={styles.textButton}>Sebagai Pembeli</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button2}
-              onPress={onSignInFotografer}>
+            </Pressable>
+            <Pressable style={styles.button2} onPress={onSignInFotografer}>
               <Text style={styles.textButton2}>Sebagai Fotografer</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </IndicatorViewPager>
       </View>

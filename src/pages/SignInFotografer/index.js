@@ -9,8 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
-import {useState} from 'react/cjs/react.development';
+import React, {useState} from 'react';
 
 export default function SignInFotografer({onHome, onSignUpFotografer}) {
   const [username, setusername] = useState('');

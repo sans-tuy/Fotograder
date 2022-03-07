@@ -58,9 +58,8 @@ export default function Home({onProfile, onDetails, onHome}) {
           </View>
           <View style={styles.card}>
             {data.card.map(item => (
-              <View style={{width: '50%'}}>
+              <View style={{width: '50%'}} key={item.id}>
                 <Card
-                  key={item.id}
                   title={item.title}
                   price={item.price}
                   likes={item.likes}

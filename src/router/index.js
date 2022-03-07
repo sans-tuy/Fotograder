@@ -63,7 +63,7 @@ function ProfilScreen({navigation}) {
 function Router() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="onBoarding">
+      <Stack.Navigator initialRouteName="OnBoarding">
         <Stack.Screen
           name="OnBoarding"
           component={OnBoardingScreen}

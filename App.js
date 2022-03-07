@@ -9,6 +9,7 @@ import SignUpPembeli from './src/pages/SignUpPembeli';
 import Router from './src/router';
 import FilterModal from './src/component/FilterModal';
 import Profile from './src/pages/Profile';
+import NotifExample from './NotifExample';
 
 export default function App() {
   return <Router />;

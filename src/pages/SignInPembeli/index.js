@@ -4,15 +4,28 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  Touchable,
+  Alert,
   TouchableHighlight,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
-import {useState} from 'react/cjs/react.development';
+import React, {useState} from 'react';
+import NotifService from '../../../NotifService';
 
 export default function SignInPembeli({onHome, onSignUpPembeli}) {
+  const notif = new NotifService(onRegister.bind(this), onNotif.bind(this));
+  function onRegister(token) {
+    this.setState({registerToken: token.token, fcmRegistered: true});
+  }
+
+  function onNotif(notif) {
+    Alert.alert(notif.title, notif.message);
+  }
+
+  function handlePerm(perms) {
+    Alert.alert('Permissions', JSON.stringify(perms));
+  }
+
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
   const [view, setview] = useState(true);
@@ -66,7 +79,12 @@ export default function SignInPembeli({onHome, onSignUpPembeli}) {
           <Pressable style={styles.button} onPress={onSignUpPembeli}>
             <Text style={styles.buttonText}>SIGN UP</Text>
           </Pressable>
-          <Pressable style={styles.button2} onPress={onHome}>
+          <Pressable
+            style={styles.button2}
+            onPress={() => {
+              onHome();
+              notif.localNotif();
+            }}>
             <Text style={styles.buttonText}>SIGN IN</Text>
           </Pressable>
         </View>
